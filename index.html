@@ -1,1 +1,368 @@
-<h1>Pool Adventures Inc</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coming soon - Pool Adventures Inc</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background: url("/pool-bg.jpg") center center/cover no-repeat fixed;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 105, 148, 0.95) 0%,
+          rgba(0, 153, 204, 0.95) 25%,
+          rgba(51, 181, 229, 0.95) 50%,
+          rgba(135, 206, 235, 0.95) 75%,
+          rgba(0, 105, 148, 0.8) 100%
+        );
+        z-index: 0;
+      }
+
+      body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 30% 70%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 30%,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 50%
+          );
+        animation: shimmerOverlay 8s ease-in-out infinite;
+        z-index: 0;
+      }
+
+      @keyframes shimmerOverlay {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.6;
+          transform: scale(1.05);
+        }
+      }
+
+      .container {
+        text-align: center;
+        max-width: 600px;
+        padding: 40px 20px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        position: relative;
+        z-index: 1;
+      }
+
+      .logo {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin: 0 auto 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 50%;
+      }
+
+      a {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        50% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        opacity: 0.95;
+        line-height: 1.6;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        padding: 0 20px;
+      }
+
+      .contact-section {
+        margin: 40px 0;
+        padding: 30px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .contact-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1rem;
+      }
+
+      .contact-item a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .contact-item a:hover {
+        opacity: 0.8;
+        transform: translateY(-2px);
+      }
+
+      .social-section {
+        margin-top: 30px;
+      }
+
+      .social-title {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-link:hover {
+        background: rgba(255, 255, 255, 0.4);
+        transform: translateY(-5px) scale(1.1);
+        border-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .notify-section {
+        margin-top: 40px;
+      }
+
+      .email-input {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .email-input input {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 1rem;
+        min-width: 250px;
+        outline: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .email-input button {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        background: linear-gradient(135deg, #00bcd4, #0097a7);
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .email-input button:hover {
+        background: linear-gradient(135deg, #0097a7, #00838f);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .subtitle {
+          font-size: 1rem;
+        }
+
+        .container {
+          margin: 20px;
+          padding: 30px 15px;
+        }
+
+        .contact-info {
+          gap: 10px;
+        }
+
+        .contact-item {
+          font-size: 1rem;
+        }
+
+        .email-input {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .email-input input {
+          min-width: 200px;
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          width: 80px;
+          height: 80px;
+          font-size: 32px;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .social-links {
+          gap: 15px;
+        }
+
+        .social-link {
+          width: 45px;
+          height: 45px;
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="/pooladventureslogo-opt.png" alt="Pool Adventures Inc Logo" />
+      </div>
+
+      <!-- Main Content -->
+      <h1>Coming soon</h1>
+      <p class="subtitle">
+        Our new website is launching soon! Reach out now to schedule your FREE
+        consultation and enjoy crystal-clear water year-round with the latest
+        technology and techniques.
+      </p>
+
+      <!-- Contact Section -->
+      <div class="contact-section">
+        <h2 class="contact-title">Get in touch</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span>📧</span>
+            <a href="mailto:pooladventuresinc@gmail.com"
+              >pooladventuresinc@gmail.com</a
+            >
+          </div>
+          <div class="contact-item">
+            <span>📞</span>
+            <a href="tel:+1234567890">(813) 770-0615</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media Links -->
+      <div class="social-section">
+        <h3 class="social-title">
+          Follow us on
+          <a href="https://www.facebook.com/profile.php?id=100090627962341"
+            >Facebook</a
+          >
+        </h3>
+      </div>
+    </div>
+  </body>
+</html>
