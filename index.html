@@ -21,7 +21,6 @@
         justify-content: center;
         color: white;
         position: relative;
-        overflow: hidden;
       }
 
       body::before {
@@ -59,20 +58,7 @@
             rgba(255, 255, 255, 0.08) 0%,
             transparent 50%
           );
-        animation: shimmerOverlay 8s ease-in-out infinite;
         z-index: 0;
-      }
-
-      @keyframes shimmerOverlay {
-        0%,
-        100% {
-          opacity: 0.3;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.6;
-          transform: scale(1.05);
-        }
       }
 
       .container {
